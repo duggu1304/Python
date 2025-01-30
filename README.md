@@ -19,3 +19,15 @@ Daily Tasks: Tasks that change every day (e.g., water intake, meals, exercise, p
 Tracking: Users can track their habit progress, log reflections, and monitor weekly task completion.
 Motivational Quotes: Get inspired daily with motivational quotes that help maintain focus.
 Data Export: Users can export their routine to text files for future reference.
+
+# Usage
+Once the script is running, you can choose from the following options:
+
+View Today's Routine: See your daily routine based on the day of the month.
+View Weekly Progress: Check how many tasks you've completed throughout the week.
+Track Habits: Update your progress for various habits like water intake, exercise, etc.
+Write Daily Reflection: Write and save reflections about your day.
+Motivational Quote: Get a random motivational quote of the day.
+Export Routine to File: Export your routine for the day to a text file.
+View All Routines: View all routines for the month.
+Reset Progress: Reset your progress for habits and tasks.
