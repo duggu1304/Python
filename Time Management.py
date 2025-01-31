@@ -1,15 +1,20 @@
 import random
 
+# Welcome message
 print("Welcome To Your Personal Time Management System! 🕒\n")
 print("Let's Get Started.\n")
 
+# User details
 User = input("Enter Your Name : ")
 Age = input("Enter Your Age : ")
 
 print("Hello", User + ",")
 print("I Hope You Are Doing Well In Your Life.")
-print("We Are A Planner Company,\nWe Provide You A Plan That Makes Your Life Managed And Easy.")
+print("We Are A Planner Company,")
+print("We Provide You A Plan That Makes Your Life Managed And Easy.")
+print(User + ", Can We Provide You A Routine To Make Your Life Easy?")
 
+# Motivational Quotes
 quotes = [
     "The secret of your future is hidden in your daily routine.",
     "Your future is created by what you do today, not tomorrow.",
@@ -18,6 +23,7 @@ quotes = [
     "Be stronger than your excuses."
 ]
 
+# Daily Routines
 Routine1 = ("""We Will Divide Your Routine Into Two Groups :
 
 First Group:
@@ -193,6 +199,7 @@ Second Group (Tasks That Change Daily):
   Task 5 = Avoid Mobile Phone For Straight 8 Hours
 """)
 
+# Task Completion Tracking
 task_status = {
     "Task 1": False,
     "Task 2": False,
@@ -201,6 +208,7 @@ task_status = {
     "Task 5": False
 }
 
+# Weekly Progress
 weekly_progress = {
     "Monday": {"completed": 0, "total": 5},
     "Tuesday": {"completed": 0, "total": 5},
@@ -211,6 +219,7 @@ weekly_progress = {
     "Sunday": {"completed": 0, "total": 5}
 }
 
+# Habit Tracker
 habit_tracker = {
     "Water Intake": 0,
     "Healthy Meals": 0,
@@ -219,8 +228,10 @@ habit_tracker = {
     "Screen Time": 0
 }
 
+# Daily Reflection Journal
 daily_journal = []
 
+# Reminder System
 reminders = [
     "Don't forget to drink water! 💧",
     "Take a short break and stretch. 🧘‍♂️",
@@ -229,23 +240,31 @@ reminders = [
     "Avoid junk food today! 🥗"
 ]
 
+# Export Routine to File
 def export_routine(day, routine):
     with open(f"{day}_routine.txt", "w", encoding="utf-8") as file:
         file.write(routine)
     print(f"Routine for {day} exported to {day}_routine.txt!")
 
+# Customizable Routine
 def edit_routine(day):
     print(f"Editing routine for {day}...")
     new_task = input("Enter a new task: ")
     Routine1 += f"\n  Task 6 = {new_task}"
     print("Task added successfully!")
 
+# View All Routines
 def view_all_routines():
     for day in range(1, 32):
         print(f"\nDay {day} Routine:")
-        print(Routine1 if day % 7 == 1 else Routine2 if day % 7 == 2 else Routine3 if day % 7 == 3 else Routine4
-              if day % 7 == 4 else Routine5 if day % 7 == 5 else Routine6 if day % 7 == 6 else Routine7)
+        print(Routine1 if day % 7 == 1 else Routine2
+              if day % 7 == 2 else Routine3
+              if day % 7 == 3 else Routine4
+              if day % 7 == 4 else Routine5
+              if day % 7 == 5 else Routine6
+              if day % 7 == 6 else Routine7)
 
+# Reset Progress
 def reset_progress():
     global task_status, weekly_progress, habit_tracker, daily_journal
     task_status = {task: False for task in task_status}
@@ -254,6 +273,7 @@ def reset_progress():
     daily_journal = []
     print("Progress reset successfully!")
 
+# Main Menu
 def main_menu():
     while True:
         print("\n📋 Main Menu:")
@@ -267,14 +287,18 @@ def main_menu():
         print("8. Reset Progress")
         print("9. Exit")
 
-        choice = input("\nEnter your choice (1-9): ").strip()
+        choice = input("\nEnter your choice (1-11): ").strip()
 
         if choice == "1":
             day = input("Enter the day (e.g., Day 1): ").strip().lower()
             day_number = int(''.join(filter(str.isdigit, day))) if any(char.isdigit() for char in day) else None
             if day_number in range(1, 32):
-                print(Routine1 if day_number % 7 == 1 else Routine2 if day_number % 7 == 2 else Routine3 if day_number % 7 == 3 else Routine4
-                      if day_number % 7 == 4 else Routine5 if day_number % 7 == 5 else Routine6 if day_number % 7 == 6 else Routine7)
+                print(Routine1 if day_number % 7 == 1 else Routine2
+                      if day_number % 7 == 2 else Routine3
+                      if day_number % 7 == 3 else Routine4
+                      if day_number % 7 == 4 else Routine5
+                      if day_number % 7 == 5 else Routine6
+                      if day_number % 7 == 6 else Routine7)
             else:
                 print("❌ Invalid day! Please enter a valid day between 1 and 31.")
         
@@ -307,9 +331,13 @@ def main_menu():
             day = input("Enter the day to export (e.g., Day 1): ").strip().lower()
             day_number = int(''.join(filter(str.isdigit, day))) if any(char.isdigit() for char in day) else None
             if day_number in range(1, 32):
-                export_routine(f"Day {day_number}", Routine1 if day_number % 7 == 1 else Routine2 if day_number % 7 == 2 else Routine3
-                               if day_number % 7 == 3 else Routine4 if day_number % 7 == 4 else Routine5 
-                               if day_number % 7 == 5 else Routine6 if day_number % 7 == 6 else Routine7)
+                export_routine(f"Day {day_number}", Routine1
+                               if day_number % 7 == 1 else Routine2
+                               if day_number % 7 == 2 else Routine3
+                               if day_number % 7 == 3 else Routine4
+                               if day_number % 7 == 4 else Routine5
+                               if day_number % 7 == 5 else Routine6
+                               if day_number % 7 == 6 else Routine7)
             else:
                 print("❌ Invalid day! Please enter a valid day between 1 and 31.")
 
@@ -326,4 +354,5 @@ def main_menu():
         else:
             print("❌ Invalid choice! Please enter a number between 1 and 11.")
 
+# Run the program
 main_menu()
