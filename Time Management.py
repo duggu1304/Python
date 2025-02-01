@@ -287,7 +287,7 @@ def main_menu():
         print("8. Reset Progress")
         print("9. Exit")
 
-        choice = input("\nEnter your choice (1-11): ").strip()
+        choice = input("\nEnter your choice (1-9): ").strip()
 
         if choice == "1":
             day = input("Enter the day (e.g., Day 1): ").strip().lower()
